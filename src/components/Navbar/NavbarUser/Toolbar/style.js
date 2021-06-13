@@ -7,6 +7,10 @@ const useStyles = makeStyles((theme) =>
 		},
 		menuButton: {
 			marginRight: theme.spacing(2),
+			display: "flex",
+			[theme.breakpoints.up("md")]: {
+				display: "none",
+			},
 		},
 		title: {
 			display: "none",
@@ -59,6 +63,36 @@ const useStyles = makeStyles((theme) =>
 			display: "flex",
 			[theme.breakpoints.up("md")]: {
 				display: "none",
+			},
+		},
+		listItem: {
+			display: "flex",
+		},
+		navItemText: {
+			flex: "0 0 auto",
+		},
+		toolBar: {
+			justifyContent: "space-between",
+		},
+		navLeft: {},
+		navCenter: {
+			display: "none",
+			[theme.breakpoints.up("md")]: {
+				display: "block",
+			},
+		},
+		navRight: {
+			"& .sectionDesktop": {
+				display: "none",
+				[theme.breakpoints.up("md")]: {
+					display: "block",
+				},
+			},
+			"& .sectionMobile": {
+				display: "flex",
+				[theme.breakpoints.up("md")]: {
+					display: "none",
+				},
 			},
 		},
 	})

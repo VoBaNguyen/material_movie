@@ -4,20 +4,32 @@ import React from 'react';
 import {
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
-  Divider
 } from "@material-ui/core";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+
 
 const useStyles = makeStyles(theme => createStyles({
+    drawerContainer: {
+        "& .MuiPaper-root": {
+            alignItems: "center",
+            justifyContent: "center",
+        }
+    },
     list: {
         width: 250
     },
     fullList: {
         width: "auto"
-    }
+    },
+    listItem: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    navItemText: {
+        flex: "0 0 auto",
+    },
 }))
 
 
@@ -32,32 +44,25 @@ const DrawerComponent = (props) => {
             onClick={toggleDrawerHandler}
             onKeyDown={toggleDrawerHandler}
         >
-            <List>
-                {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-                    <ListItem button key={text}>
-                    <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {["All mail", "Trash", "Spam"].map((text, index) => (
-                    <ListItem button key={text}>
-                    <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+            <List component="nav" aria-label="main mailbox folders">
+                <ListItem className={classes.listItem} button>
+                    <ListItemText className={classes.navItemText} primary="Lịch Chiếu" />
+                </ListItem>
+                <ListItem className={classes.listItem} button>
+                    <ListItemText className={classes.navItemText} primary="Cụm Rạp" />
+                </ListItem>
+                <ListItem className={classes.listItem} button>
+                    <ListItemText className={classes.navItemText} primary="Tin Tức" />
+                </ListItem>
+                <ListItem className={classes.listItem} button>
+                    <ListItemText className={classes.navItemText} primary="Liên Hệ" />
+                </ListItem>
             </List>
         </div>
     );
 
     return (
-        <Drawer open={left} onClose={toggleDrawerHandler}>
+        <Drawer anchor="top" open={left} onClose={toggleDrawerHandler} className={classes.drawerContainer}>
             {sideList("left")}
         </Drawer>
     );
