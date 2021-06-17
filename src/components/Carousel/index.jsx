@@ -5,11 +5,10 @@ import { Button } from "@material-ui/core"
 
 const useStyles = makeStyles({
     carouselList: {
-        marginRight: "-10px",
-        marginLeft: "-10px",
+        marginRight: -10,
+        marginLeft: -10,
         "& .slick-list": {
-            overflowX: "hidden",
-            overflowY: "visible",
+            paddingTop: 10,
             
         },
         "& .slick-slide": {
@@ -23,7 +22,6 @@ const useStyles = makeStyles({
         transition: "all .4s ease",
         "&:hover": {
             transform: "translate(0, -5px)",
-            
         }
     }
 })
@@ -38,8 +36,6 @@ const CarouselComponent = () => {
     }
     const classes = useStyles()
     const settings = {
-        arrows: false,
-        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 4,

@@ -12,7 +12,7 @@ const ToolbarComponent = (props) => {
     const classes = useStyles()
     return (
         <div className={classes.grow}>
-            <AppBar position="static">
+            <AppBar position="static" className={classes.appBar}>
                 <Toolbar className={classes.toolBar}>
                     <div className="navLeft">
                         <Typography className={classes.title} variant="h6" noWrap>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import NavbarUser from '../../../components/Navbar/NavbarUser';
-import { Container, createStyles } from "@material-ui/core"
+import { Container, createStyles, Typography } from "@material-ui/core"
 import SliderComponent from '../../../components/Slider';
 import CarouselComponent from '../../../components/Carousel';
 
@@ -16,9 +16,9 @@ const Home = () => {
           <NavbarUser />
           <SliderComponent />
           <Container>
-            <h1>Showing movie</h1>
+            <Typography variant="h4" component="p">Now Showing</Typography>
             <CarouselComponent />
-            <h1>Coming movie</h1>
+            <Typography variant="h4" component="p">Coming Soon</Typography>
             <CarouselComponent />
           </Container>
         </Container>
