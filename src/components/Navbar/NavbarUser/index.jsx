@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import DrawerComponent from './Drawer';
 import ToolbarComponent from './Toolbar';
 
@@ -8,7 +8,7 @@ const useStyles = makeStyles({
         position: "fixed",
         width: "100%",
         height: 60,
-        zIndex: 10
+        zIndex: 10,
     }
 })
 

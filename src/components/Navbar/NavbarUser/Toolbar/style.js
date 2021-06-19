@@ -1,76 +1,47 @@
-import { makeStyles, fade, createStyles } from "@material-ui/core/styles";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
+import { displayDesktop, displayMobile } from "../../../../styles/reponsive";
 
 const useStyles = makeStyles((theme) =>
 	createStyles({
 		grow: {
 			flexGrow: 1,
 		},
+		title: {
+			cursor: "pointer",
+		},
 		menuButton: {
+			...displayMobile(theme, "md"),
 			marginRight: theme.spacing(2),
-			display: "flex",
-			[theme.breakpoints.up("md")]: {
-				display: "none",
-			},
+			color: theme.palette.secondary.light,
 		},
-		search: {
-			position: "relative",
-			borderRadius: theme.shape.borderRadius,
-			backgroundColor: fade(theme.palette.common.white, 0.15),
-			"&:hover": {
-				backgroundColor: fade(theme.palette.common.white, 0.25),
-			},
-			marginRight: theme.spacing(2),
-			marginLeft: 0,
-			width: "100%",
-			[theme.breakpoints.up("sm")]: {
-				marginLeft: theme.spacing(3),
-				width: "auto",
-			},
-		},
-		sectionDesktop: {
-			display: "none",
-			[theme.breakpoints.up("md")]: {
-				display: "flex",
-			},
-		},
-		sectionMobile: {
-			display: "flex",
-			[theme.breakpoints.up("md")]: {
-				display: "none",
-			},
-		},
+		sectionDesktop: displayDesktop(theme, "md"),
+		sectionMobile: displayMobile(theme, "md"),
 		listItem: {
 			display: "flex",
+			"& .MuiListItem-root": {
+				width: "auto !important",
+			},
 		},
 		navItemText: {
 			flex: "0 0 auto",
 		},
 		appBar: {
-			backgroundColor: "transparent",
+			backgroundColor: theme.palette.primary.dark,
+			transition: "all .5s ease",
+			"&.top": {
+				backgroundColor: "transparent",
+				paddingTop: 10,
+				paddingBottom: 10,
+			},
 		},
 		toolBar: {
 			justifyContent: "space-between",
 		},
 		navLeft: {},
-		navCenter: {
-			display: "none",
-			[theme.breakpoints.up("md")]: {
-				display: "block",
-			},
-		},
+		navCenter: displayDesktop(theme, "md"),
 		navRight: {
-			"& .sectionDesktop": {
-				display: "none",
-				[theme.breakpoints.up("md")]: {
-					display: "block",
-				},
-			},
-			"& .sectionMobile": {
-				display: "flex",
-				[theme.breakpoints.up("md")]: {
-					display: "none",
-				},
-			},
+			"& .sectionDesktop": displayDesktop(theme, "md"),
+			"& .sectionMobile": displayMobile(theme, "md"),
 		},
 	})
 );

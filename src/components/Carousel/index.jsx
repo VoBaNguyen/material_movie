@@ -1,31 +1,7 @@
-import { Card, CardActionArea, CardActions, CardContent, CardMedia, makeStyles, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React from 'react';
 import Slider from "react-slick";
-import { Button } from "@material-ui/core"
-
-const useStyles = makeStyles({
-    carouselList: {
-        marginRight: -10,
-        marginLeft: -10,
-        "& .slick-list": {
-            paddingTop: 10,
-            
-        },
-        "& .slick-slide": {
-            paddingLeft: "10px",
-            paddingRight: "10px",
-            boxSizing: "border-box",
-        }
-    },
-    carouselItem: {
-        padding: 0,
-        transition: "all .4s ease",
-        "&:hover": {
-            transform: "translate(0, -5px)",
-        }
-    }
-})
-
+import { useStyles } from "./style"
 
 const CarouselComponent = () => {
     const breakPoints = {
@@ -61,7 +37,7 @@ const CarouselComponent = () => {
     const renderCarouselSlide = () => {
         return [1,2,3,4,5,6,7,8,9,10,11,12].map((num,index) => {
             return (
-                <Card className={classes.carouselItem}>
+                <Card className={classes.carouselItem} key={index}>
                     <CardActionArea>
                         <CardMedia
                         image="https://picsum.photos/300/350"

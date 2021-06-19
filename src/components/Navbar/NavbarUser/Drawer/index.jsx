@@ -36,7 +36,6 @@ const useStyles = makeStyles(theme => createStyles({
 const DrawerComponent = (props) => {
     const {left, toggleDrawerHandler} = props
     const classes = useStyles()
-
     const sideList = side => (
         <div
             className={classes.list}
